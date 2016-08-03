@@ -1,0 +1,454 @@
+body, html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+.layout {
+	height: 100%;
+	width: 100%;
+	min-height: 605px;
+	min-width: 960px;
+	overflow: hidden;
+	background-image: url("../../img/block-sm.png");
+	-webkit-box-shadow: inset 0px 0px 61px 20px rgba(0,0,0,0.7);
+	-moz-box-shadow: inset 0px 0px 61px 20px rgba(0,0,0,0.7);
+	box-shadow: inset 0px 0px 61px 20px rgba(0,0,0,0.7);
+}
+.arch-wrapper {
+	height: 100%;
+    width: 100%;
+	min-height: 605px;
+	min-width: 960px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .arch-container {
+    	margin: auto;
+    	position: relative;
+    	top: 50%;
+	    width: 50%;
+	    min-width: 560px;
+	    height: 70%; 
+	    border-radius: 10px;
+	    background-color: $color-background;
+	    padding-left: 10px;
+	    padding-right: 10px;
+	    box-sizing: border-box;
+	    box-shadow: 0px 0px 40px 10px $color-background;
+	    font-family: arial;
+	    transform: translateY(-50%);
+	    -ms-transform: translateY(-50%); 
+	   	-webkit-transform: translateY(-50%);
+	    -webkit-animation-name: fadeIn;
+  		animation-name: fadeIn;
+  		-webkit-animation-duration: 2s;
+  		animation-duration: 2s;
+
+	    .language-picker {
+	    	display: inline-block;
+		    position: absolute;
+		    top: 9px;
+		    box-sizing: border-box;
+		    height: 20px;
+		    &:hover {
+	    		cursor: hand;
+	    		cursor: pointer;
+	    	}
+
+		    .language-box {
+		    	padding-top: 4px;
+		    	padding-bottom: 3px;
+		    	display: inline-block;
+		    	font-size: 14px;
+		    	width: 40px;
+		    	text-align: center;
+			    border-radius: 6px;
+			    color: white;
+		    }
+		    .picked-language {
+		    	background-color: white;
+		    	font-weight: 600;
+		    	color: $color-title;
+		    }
+	    }
+	    .title {
+	    	margin: 0;
+	    	color: $color-title;
+		    text-align: center;
+		    padding-top: 10px;
+		    padding-bottom: 5px;
+		    border-bottom: 1px solid $color-title;
+	    }
+	    .container {
+	    	position: absolute;
+		    top: 55px;
+		    left: 0;
+		    height: 100%;
+		    width: 100%;	    
+		}
+	    .toolbar {
+	    	overflow: hidden;
+
+	    	.button {
+	    		float: right;
+			    margin-right: 10px;
+			    margin-left: 5px;
+			    padding: 3px 8px;
+			    border: 1px solid white;
+			    font-size: 14px;
+			    color: #787878;
+			    background-color: white;
+			    border-radius: 3px;
+			    font-weight: 600;
+	    		&:hover{
+	    			cursor: hand;
+	    			cursor: pointer;
+	    		}
+	    	}
+	    }
+	    .treeview-wrapper {
+	    	width: 100%;
+	    	height: 80%;
+	    	box-sizing: border-box;
+	    	padding-right: 120px;
+    		padding-bottom: 25px;
+    		position: relative;
+    		top: 10px;
+	    	min-width: 300px;
+	    	min-height: 340px;
+	    }
+	    .treeview {
+	    	width: 100%;
+	    	height: 100%;
+	    	overflow-y: auto;  
+    		padding-bottom: 15px;
+	    	padding-left: 120px;
+    		box-sizing: border-box;
+    		position: relative;
+	    }
+	    .node-icon {
+	    	display: inline-block;
+	    	font-size: 16px;
+	    	margin-right: 5px;
+	    	width: 17px;
+	    	text-align: center;
+	    	position: relative;
+	    	top: -3px;
+	    }
+	    .node-title {
+	    	display: inline-block;
+	    	font-size: 16px;
+		    text-decoration: underline;
+		    font-weight: 800;
+		    max-width: 90%;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+	    }
+	    .node-actions {
+	    	display: inline-block;
+    		font-size: 16px;
+    		display: none;
+    		width: 110px;
+    		position: absolute;
+    		right: 100%;
+    		text-align: right;
+    		box-sizing: border-box;
+    		padding-right: 10px;
+    		&:hover {
+    			display: inline-block !important;
+    		}
+
+	    	.action {
+	    		display: inline-block;
+
+	    		.action-icon {
+	    			min-width: 20px;
+	    		}
+	    		
+	    	}
+	    	.special-actions {
+	    		position: relative; 
+	    	}
+	    	.separate-container {
+	    		position: relative;
+	    		margin-right: 8px;
+    			
+    			.action-icon {
+    				position: absolute;
+    				bottom: -3px;
+    				right: -2px;
+    				font-size: 14px; 
+    				margin-right: 0;
+    			}
+	    	}
+	    	.action-animation-0 {
+	    		-webkit-animation-name: zoomInRight;
+	    		animation-name: zoomInRight;
+		  		-webkit-animation-duration: 0.7s;
+		  		animation-duration: 0.7s;
+	    	}
+	    	.action-animation-1:first-of-type {
+	    		-webkit-animation-name: zoomInRight;
+	    		animation-name: zoomInRight;
+		  		-webkit-animation-duration: 0.9s;
+		  		animation-duration: 0.9s;
+	    	}
+	    	.action-animation-1:not(:first-of-type) {
+	    		-webkit-animation-name: zoomInRight;
+	    		animation-name: zoomInRight;
+		  		-webkit-animation-duration: 1.1s;
+		  		animation-duration: 1.1s;
+	    	}
+	    	.action-animation-2 {
+	    		-webkit-animation-name: zoomInRight;
+	    		animation-name: zoomInRight;
+		  		-webkit-animation-duration: 1.3s;
+		  		animation-duration: 1.3s;
+	    	}
+	    }
+	    .node-items {
+	    	margin-left: 27px;
+
+	    	.child-item {
+	    		margin-top: 10px;
+	    		-webkit-animation-name: fadeInLeft;
+		  		animation-name: fadeInLeft;
+		  		-webkit-animation-duration: 1s;
+		  		animation-duration: 1s;
+
+	    		&:hover {
+	    			.node-actions {
+	    				visibility: visible;
+	    			}
+	    		}
+	    	}
+	    }
+	    .item-folder, .item-file  {
+	    	line-height: 18px;
+	    }
+	    .item-folder {
+	    	color: $color-treeview;
+	    	display: block;
+
+	    	&:hover {
+	    		cursor: hand;
+	    		cursor: pointer;
+	    	}
+	    	.item-file {
+	    		display: block;
+
+	    		.node-title {
+	    			text-decoration: none;
+	    		}
+	    	}
+	    }
+	    .current-item {
+	    	position: relative; 
+	    	&:hover {
+	    		.node-actions {
+	    			display: inline-block;
+	    		}
+	    	}
+	    }
+	    .popup {
+	    	position: absolute;
+	    	top: 20%;
+	    	left: 50%;
+	    	width: 350px;
+	    	height: 250px;
+	    	background-color: white;
+	    	border: 2px solid $color-border;
+	    	transform: translateX(-50%);
+	    	display: none;
+	    	-webkit-animation-name: zoomInDown;
+	  		animation-name: zoomInDown;
+	  		-webkit-animation-duration: 0.7s;
+	  		animation-duration: 0.7s;
+
+	    	.title{
+	    		margin-top: 5px;
+	    		font-size: 20px;
+
+	    		.close-icon {
+	    			position: absolute;
+				    right: 10px;
+				    top: 12px;
+				    &:hover {
+				    	cursor: pointer;
+				    	cursor: hand;
+				    }
+	    		}
+	    	}
+	    	.dialogs {
+	    		padding: 5px 10px;
+
+	    		.node-title {
+	    			margin-left: 10px;
+	    			margin-top: 10px;
+	    			font-size: 16px;
+	    			color: $color-border;
+	    		}
+	    		.toolbar {
+	    			margin-top: 12px;
+
+	    			.button {
+	    				border: 1px solid $color-border;
+					    color: $color-border;
+					    background-color: $color-treeview;
+					    padding: 5px 8px 3px 8px;
+	    			}
+	    		}
+	    		.error-field {
+    				border-color: #982828 !important;
+
+    				& + .type-dropdown {
+    					color: #982828;
+    				}
+    			}
+	    	}
+	    	.user-input {
+	    		margin-left: 10px;
+    			margin-top: 5px;
+    			position: relative;
+
+    			[role="item-name"] {
+    			    border: 1px solid $color-treeview;
+    			    width: 310px;
+    			    line-height: 20px;
+    				box-sizing: border-box;
+    				padding: 5px 8px 3px 8px;
+    				background-color: $color-treeview;
+    			}
+    			.dropdown-value {
+    				width: 310px;
+    				box-sizing: border-box;
+    				height: 40px;
+    				background-color: $color-treeview;
+    				padding: 8px 8px 0px 8px;
+    				position: relative;
+    				&:hover {
+    					cursor: pointer;
+    					cursor: hand;
+    				}
+    			}
+    			.dropdown-wrapper {
+    				overflow: auto;
+    				width: 310px;
+    				max-height: 157px;
+    				z-index: 2;
+    				box-sizing: border-box;
+    				position: absolute;
+    			}
+    			.dropdown-input {
+    				width: 310px;
+    				box-sizing: border-box;
+    				//position: absolute;
+    				overflow-y: auto; 
+    				margin: 0;
+    				padding: 0;
+    				list-style-type: none;
+    				display: table;
+    			}
+    			.dropdown-item {
+    				display: table-row;
+    				height: 35px;
+   				    background-color: $color-title;
+   				    &:hover {
+   				    	background-color: $color-border;
+   				    	cursor: hand;
+   				    	cursor: pointer;
+   				    }
+   				    .item-value {
+   				    	overflow: visible;
+   				    	background-color: white;
+   				    	color: black;
+   				    	display: inline-table;
+	    				position: relative;
+	    				top: 6px;
+	    				margin-left: 8px;
+	    				margin-right: 8px;
+   				    }
+    			}
+    			.item-value { 
+    				background-color: $color-border;
+    				font-size: 14px;
+    				padding: 3px 10px;
+    				color: white;
+    				max-width: 93%;
+    				display: inline-block;
+    				box-sizing: border-box;
+    				overflow: hidden;
+    				text-overflow: ellipsis;
+    			}
+    			.toggle-dropdown {
+    				position: absolute;
+    				right: 8px;
+				    top: 14px;
+				    font-size: 14px;
+				    &:hover {
+				    	cursor: hand;
+				    	cursor: pointer;
+				    }
+    			}
+    			.type-dropdown {
+    				top: 9px;
+    				right: 18px;
+    			}
+    			.type-input {
+					z-index: 5;
+					width: auto;
+					min-width: 85px;
+					right: 10px;
+					max-height: 160px;
+					position: absolute;
+
+					.dropdown-item {
+						height: 20px;
+						padding: 4px 0 12px 0;
+						display: block;
+					}
+					.item-value {
+						padding: 0;
+						background-color: transparent;
+						font-size: 16px;
+						text-align: center;
+						display: block;
+					}
+					.fa {
+						margin-right: 5px;
+					}
+				}
+	    	}
+	    	.input-disabled {
+	    		border: 1px solid $color-border;
+
+	    		.toggle-dropdown {
+	    			display: none;
+	    		}
+	    	}
+	    	.error-box {
+	    		position: absolute;
+			    left: 100%;
+			    top: 89px;
+			    display: inline-block;
+			    min-width: 150px;
+			    max-width: 250px;
+			    margin-left: 5px;
+			    font-size: 14px;
+			    background-color: #982828;
+			    font-weight: 600;
+			    padding: 2px 5px;
+			    border-radius: 3px;
+	    	}
+	    }
+	    .popup-close {
+	    	-webkit-animation-name: zoomOutUp;
+	  		animation-name: zoomOutUp;
+	  		-webkit-animation-duration: 0.7s;
+	  		animation-duration: 0.7s;
+	  		-webkit-animation-fill-mode: forwards;
+	  		animation-fill-mode: forwards;
+	    }
+    }
+}

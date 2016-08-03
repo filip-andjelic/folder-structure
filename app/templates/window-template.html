@@ -1,0 +1,31 @@
+<div id="create-popup" class="popup">
+	<h2 class="title">{{windowData.title[language]}} <span class="fa fa-close close-icon" ng-click="close()"></span></h2>
+	<div class="dialogs">
+		<div class="node-title">{{windowData.labelForName[language]}} :</div>
+			<div class="user-input">
+				<input role="item-name" placeholder=". . ." ng-model="name" ng-class="{'error-field': errorText}" ng-focus="inputFocus($event)"/>
+				<span ng-if="windowData.type === 'file'" ng-click="toggleDropdown($event, 'typePicker')" class="toggle-dropdown type-dropdown fa fa-arrow-down"></span>
+				<div class="dropdown-input type-input" ng-if="windowData.type === 'file' && typePicker">
+					<div class="dropdown-item" ng-repeat="type in fileTypes" ng-click="pickType($event, type)">
+						<span class="item-value"><span ng-style="{'color': type.color}" ng-class="{'fa': true, '{{type.icon}}': true}"></span>{{type.name}}</span>
+					</div>
+				</div>
+			</div>
+		<div class="node-title">{{windowData.labelForPath[language]}} :</div>
+		<div class="user-input">
+			<div ng-class="{'dropdown-value': true, 'input-disabled': windowData.pickedDestination}" ng-click="toggleDropdown($event, 'showDropdown')">
+				<span class="item-value">{{path.name}}</span>
+				<span class="toggle-dropdown fa fa-arrow-down"></span>
+			</div>
+			<div class="dropdown-wrapper">
+				<ul class="dropdown-input" ng-if="showDropdown && !windowData.pickedDestination">
+					<li class="dropdown-item" ng-repeat="destination in availableFolderDestinations | orderBy:'name'" ng-click="pickPath($event, destination)"><span class="item-value">{{destination.name}}</span></li>
+				</ul>
+			</div>	
+		</div>
+		<div class="toolbar"><button ng-click="create($event)" class="button">{{windowData.labelForButton[language]}}</button></div>
+	</div>
+	<div class="error-box" ng-if="errorText">
+		{{errorText[language]}}
+	</div>
+</div>

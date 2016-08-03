@@ -1,0 +1,21 @@
+<div ng-repeat="current in data | orderBy:['-type','nodeName']" class="child-item item-{{current.type}}" id="{{current.nodeId}}" role="node-wrapper">
+	<div class="current-item">	
+		<div class="node-actions" id="item-{{current.nodeId}}-actions">
+			<div class="action" ng-repeat="action in current.actions track by $index">
+				<span ng-if="action.specialActions" class="special-actions">
+					<span class="separate-container action-animation-{{$index}}" ng-repeat="special in action.specialActions" ng-click="special.clickHandler($event, current)">
+						<span class="special-icon fa {{special.actionIcon}}" ng-style="{'color': special.color}"></span>
+						<span class="action-icon special-action fa {{action.actionIcon}}" ng-style="{'color': action.color}"></span>
+					</span>
+				</span> 
+				<span ng-if="!action.specialActions" class="action-icon fa {{action.actionIcon}} action-animation-{{$index}}" ng-style="{'color': action.color}" ng-click="action.clickHandler($event, current)"></span>
+			</div>
+		</div>
+		<div class="node-icon fa {{current.nodeIcon}}" ng-style="{'color': current.iconColor}"></div>
+		<div class="node-title">{{ current.nodeName }}</div>
+	</div>
+	<div class="node-items" ng-if="current.items && current.items.length !== 0">
+		<div ng-repeat="child in current.items | orderBy:['-type','nodeName']" node-item child="child">
+		</div>
+	</div>
+</div>

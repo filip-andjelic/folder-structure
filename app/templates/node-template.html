@@ -1,0 +1,19 @@
+<div class="child-item item-{{child.type}}" id="{{child.nodeId}}">
+	<div class="current-item">
+		<div class="node-actions" id="item-{{child.nodeId}}-actions">
+			<div class="action" ng-repeat="action in child.actions | unique: 'id'">
+				<span ng-if="action.specialActions" class="special-actions">
+					<span class="separate-container action-animation-{{$index}}" ng-repeat="special in action.specialActions" ng-click="special.clickHandler($event, child)">
+						<span class="special-icon fa {{special.actionIcon}}" ng-style="{'color': special.color}"></span>
+						<span class="action-icon special-action fa {{action.actionIcon}}" ng-style="{'color': action.color}"></span>
+					</span>
+				</span> 
+				<span ng-if="!action.specialActions" class="action-icon fa {{action.actionIcon}} action-animation-{{$index}}" ng-style="{'color': action.color}" ng-click="action.clickHandler($event, child)"></span>
+			</div>
+		</div>
+		<div class="node-icon fa {{child.nodeIcon}}" ng-style="{'color': child.iconColor}"></div>
+		<div class="node-title">{{ child.nodeName }}</div>
+	</div>
+	<div class="node-items">
+	</div>
+</div>

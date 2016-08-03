@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>Folder structure simulation</title>
+	<!-- here we inlcude needed files -->
+	<script type="text/javascript" src="plugins/angular/angular.min.js"></script>
+	<script type="text/javascript" src="plugins/angular-sanitize/angular-sanitize.min.js"></script>
+	<script type="text/javascript" src="plugins/jquery/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="app/app.module.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" type="text/css" href="src/stylesheet/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="src/stylesheet/css/animate.css">
+	<link rel="stylesheet" type="text/css" href="src/stylesheet/css/main.css">
+</head>
+<body ng-app="devanaApp">
+	<div class="layout"><!--here we put overlay background photo--></div>
+	<div class="arch-wrapper">
+		<div class="arch-container" ng-controller="mainController">
+			<div class="language-picker">
+				<span ng-class="{'picked-language': defaultLanguage === 'eng', 'language-box': true}" ng-click="pickLanguage('eng')">ENG</span>
+				<span ng-class="{'picked-language': defaultLanguage === 'yu', 'language-box': true}" ng-click="pickLanguage('yu')">YU</span>
+			</div>
+			<h2 class="title">{{pageHeader[defaultLanguage]}}</h2>
+			<div class="container">
+				<div class="toolbar">
+					<button ng-repeat="action in defaultActions" ng-click="action.clickHandler()" class="button">{{action.name[defaultLanguage]}}</button>
+				</div>
+				<div class="treeview-wrapper">
+					<div class="treeview" role="treeview">
+						<div tree-view data="dataSource" default-language="defaultLanguage" class="root-item"></div>
+					</div>
+				</div>
+				<div popup-window window-data="windowData" available-folder-destinations="availableFolderDestinations"></div>
+			</div>
+		</div>
+	</div>	
+</body>
+</html>
